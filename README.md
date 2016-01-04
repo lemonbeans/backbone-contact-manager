@@ -7,7 +7,7 @@ Simple Angular.js contact manager application
 
 
 ## Deployed here
-http://dmytroyarmak.github.io/backbone-contact-manager
+https://thawing-tundra-7865.herokuapp.com/
 
 
 https://github.com/lemonbeans/backbone-contact-manager.git
