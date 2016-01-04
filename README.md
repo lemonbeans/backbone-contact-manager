@@ -1,7 +1,7 @@
 Angular JS Contact Manager
 ==========================
 
-@ Authosr : Sathiyendhiran Marimuthu
+@ Author : Sathiyendhiran Marimuthu
 
 Simple Angular.js contact manager application
 
