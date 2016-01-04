@@ -23,6 +23,17 @@
   line-height: 1.4;
 }
 
+.bs-header h1 {
+  margin-top: 0;
+  color: #fff;
+}
+
+.bs-header p {
+  margin-bottom: 0;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
 .media-object {
   width: 128px;
   height: 128px;

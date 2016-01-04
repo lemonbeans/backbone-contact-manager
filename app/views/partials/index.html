@@ -1,0 +1,37 @@
+<!-- Conact Ctrl -->
+<div ng-controller="AppCtrl">
+  <!-- col -->
+  <div class="container">
+    <h2 class="page-header text-center">List of contacts</h2>   
+    <p class="text-center">
+      <a ng-href="#/add" class="btn btn-primary btn-lg"><i class="fa fa-plus fa-fw m-r-xs"></i> New Contact</a>
+    </p>
+    <h4 ng-show="contacts.length == 0">There are no contacts here!</h4>
+    <div class="col-md-4"ng-repeat="(id, contact) in contacts">         
+      <div class="well well-sm">
+        <div class="wrapper-sm b-b">
+          <div class="m-t-n-xxs m-b-n-xxs m-l-xs">
+            <a class="btn btn-xs btn-default pull-right" href="#/remove/{{id}}"><i class="fa fa-times"></i></a> &nbsp;
+            <a class="btn btn-xs btn-default pull-right" href="#/edit/{{id}}"><i class="fa fa-pencil"></i></a>            
+          </div>
+          <div class="media">
+            <div class="pull-left">
+              <img class="contact-img" ng-src="{{contact.avatar}}">
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">{{contact.name}}</h4>
+              <dl>
+                <dt>Phone Number:</dt>
+                <dd class="phone">{{contact.tel}}</dd>
+                <dt>Email:</dt>
+                <dd class="email">{{contact.email}}</dd>
+              </dl>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <!-- /col -->
+</div>
+<!-- /Contact Ctrl layout -->
