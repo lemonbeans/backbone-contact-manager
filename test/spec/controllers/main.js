@@ -5,21 +5,12 @@ describe('Controller: AppCtrl', function() {
   // load the controller's module
   beforeEach(module('contactManager'));
 
-  var AppCtrl, AddCtrl, EditCtrl, RemoveCtrl, scope;
+  var AppCtrl, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function($controller, $rootScope, ContactService) {
     scope = $rootScope.$new();
     AppCtrl = $controller('AppCtrl', {
-      $scope: scope
-    });
-    AddCtrl = $controller('AddCtrl', {
-      $scope: scope
-    });
-    EditCtrl = $controller('EditCtrl', {
-      $scope: scope
-    });
-    RemoveCtrl = $controller('RemoveCtrl', {
       $scope: scope
     });
   }));
@@ -39,16 +30,29 @@ describe('Controller: AppCtrl', function() {
     expect(scope.contacts.length).toBe(7);
   });
 
-  it('should add then remove a contact from the contact list', function() {
+  it('should remove 2 contact from the contact list', function() {
     scope.contact = {
-      name: 'Sathya',
-      tel: '666-666-6666',
-      email: 'test@sample.com',
-      avatar: 'images/faces/4.jpg'
+      name: 'My name is Universe',
+      tel: '111-111-1111',
+      email: 'universe@universe.com',
+      avatar: 'images/faces/3.jpg'
     }
+    scope.remove();
+    scope.remove();
+    expect(scope.contacts.length).toBe(4);
+  });
+
+   it('should remove then add a contact to the contact list', function() {
+    scope.contact = {
+      name: 'My name is Universe',
+      tel: '111-111-1111',
+      email: 'universe@universe.com',
+      avatar: 'images/faces/3.jpg'
+    }
+    scope.remove();
     scope.add();
-    scope.remove(0);
     expect(scope.contacts.length).toBe(6);
-  });  
+  });
+
 
 });

@@ -72,7 +72,6 @@ contactManager.controller('AppCtrl',
     };
 
     $scope.remove = function() {
-      $scope.contacts.splice(0, 1)
       $scope.contacts.splice($routeParams.id, 1);
       $location.url('/');
     };
@@ -81,4 +80,3 @@ contactManager.controller('AppCtrl',
     };
 
   });
-
