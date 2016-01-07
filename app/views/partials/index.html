@@ -2,17 +2,23 @@
 <div ng-controller="AppCtrl">
   <!-- col -->
   <div class="container">
-    <h2 class="page-header text-center">List of contacts</h2>   
-    <p class="text-center">
-      <a ng-href="#/add" class="btn btn-primary btn-lg"><i class="fa fa-plus fa-fw m-r-xs"></i> New Contact</a>
-    </p>
+    <h2 class="page-header text-center">List of contacts</h2>
+    <div class="form-group col-md-8">
+      <label class="form-control-static pull-left" for="searchBox"></label>
+      <input placeholder="Search for a contact" class="form-control" type="text" id="searchContact" data-ng-model="searchContactAddr" />
+      
+    </div>
+    <div class="form-group col-md-4">
+      <a ng-href="#/add" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus fa-fw m-r-xs"></i> New Contact</a>      
+    </div>
+    
     <h4 ng-show="contacts.length == 0">There are no contacts here!</h4>
-    <div class="col-md-4"ng-repeat="(id, contact) in contacts">         
+    <div class="col-md-4"ng-repeat="(id, contact) in contacts | filter:searchContactAddr">
       <div class="well well-sm">
         <div class="wrapper-sm b-b">
           <div class="m-t-n-xxs m-b-n-xxs m-l-xs">
             <a class="btn btn-xs btn-default pull-right" href="#/remove/{{id}}"><i class="fa fa-times"></i></a> &nbsp;
-            <a class="btn btn-xs btn-default pull-right" href="#/edit/{{id}}"><i class="fa fa-pencil"></i></a>            
+            <a class="btn btn-xs btn-default pull-right" href="#/edit/{{id}}"><i class="fa fa-pencil"></i></a>
           </div>
           <div class="media">
             <div class="pull-left">
@@ -28,7 +34,7 @@
               </dl>
             </div>
           </div>
-        </div>        
+        </div>
       </div>
     </div>
   </div>

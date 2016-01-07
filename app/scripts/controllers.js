@@ -52,7 +52,6 @@ contactManager.controller('InfoCtrl',
     $scope.contact = $scope.contacts[$routeParams.id];
   });
 
-
 contactManager.controller('AddCtrl',
   function AddCtrl($scope, $location, ContactService) {
     $scope.contacts = ContactService;
@@ -77,9 +76,7 @@ contactManager.controller('EditCtrl',
   function EditCtrl($scope, $routeParams, $location, ContactService) {
     $scope.contacts = ContactService;
     $scope.contact = $scope.contacts[$routeParams.id];
-    $scope.edit = function() {
-      console.log($routeParams.id);
-      console.log($scope.contact);
+    $scope.edit = function() {     
       $scope.contacts[$routeParams.id] = $scope.contact;
       $location.url('/');
     };
