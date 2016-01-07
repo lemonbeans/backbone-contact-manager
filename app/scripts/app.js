@@ -7,7 +7,9 @@
  * # contactManager *
  * Main module of the application.
  */
-var contactManager = angular.module('contactManager', [
+var contactManager = angular
+
+  .module('contactManager', [
   'ngAnimate',
   'ngCookies',
   'ngResource',
@@ -22,21 +24,17 @@ var contactManager = angular.module('contactManager', [
       templateUrl: 'views/partials/index.html',
       controller: 'AppCtrl'
     })
-    .when('/info/:id', {
-      templateUrl: 'views/partials/info.html',
-      controller: 'InfoCtrl'
-    })
     .when('/add', {
       templateUrl: 'views/partials/add.html',
-      controller: 'AddCtrl'
+      controller: 'AppCtrl'
     })
     .when('/edit/:id', {
       templateUrl: 'views/partials/edit.html',
-      controller: 'EditCtrl'
+      controller: 'AppCtrl'
     })
     .when('/remove/:id', {
       templateUrl: 'views/partials/remove.html',
-      controller: 'RemoveCtrl'
+      controller: 'AppCtrl'
     })
     .otherwise({
       redirectTo: '/index'

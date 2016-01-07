@@ -42,23 +42,18 @@ contactManager.factory('ContactService', function() {
 });
 
 contactManager.controller('AppCtrl',
-  function AppCtrl($scope, ContactService) {
+  function AppCtrl($scope, ContactService, $routeParams, $location) {
     $scope.contacts = ContactService;
-  });
 
-contactManager.controller('InfoCtrl',
-  function InfoCtrl($scope, $routeParams, ContactService) {
-    $scope.contacts = ContactService;
-    $scope.contact = $scope.contacts[$routeParams.id];
-  });
+    if ($routeParams.id) {
+      $scope.contact = $scope.contacts[$routeParams.id];
+    } else {
+      $scope.contact = {};
+    }
 
-contactManager.controller('AddCtrl',
-  function AddCtrl($scope, $location, ContactService) {
-    $scope.contacts = ContactService;
-    $scope.contact = {};
     $scope.add = function() {
-      $scope.contact.avatar = 'images/faces/1.jpg';      
-      if ($scope.contact.name !== undefined || $scope.contact.tel !== undefined  || $scope.contact.email !== undefined ) {
+      $scope.contact.avatar = 'images/faces/1.jpg';
+      if ($scope.contact.name !== undefined || $scope.contact.tel !== undefined || $scope.contact.email !== undefined) {
         $scope.contacts.push($scope.contact);
       } else {
         $scope.contacts.push({
@@ -70,27 +65,20 @@ contactManager.controller('AddCtrl',
       }
       $location.url('/');
     };
-  });
 
-contactManager.controller('EditCtrl',
-  function EditCtrl($scope, $routeParams, $location, ContactService) {
-    $scope.contacts = ContactService;
-    $scope.contact = $scope.contacts[$routeParams.id];
-    $scope.edit = function() {     
-      $scope.contacts[$routeParams.id] = $scope.contact;
+    $scope.edit = function() {
+      $scope.contacts[$routeParams.id] = $scope.contacts[$routeParams.id];
       $location.url('/');
     };
-  });
 
-contactManager.controller('RemoveCtrl',
-  function RemoveCtrl($scope, $routeParams, $location, ContactService) {
-    $scope.contacts = ContactService;
-    $scope.contact = $scope.contacts[$routeParams.id];
     $scope.remove = function() {
+      $scope.contacts.splice(0, 1)
       $scope.contacts.splice($routeParams.id, 1);
       $location.url('/');
     };
     $scope.back = function() {
       $location.url('/');
     };
+
   });
+
